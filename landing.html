@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img class="logo-img" src="/logo.png" alt="">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#use-case">Use Case</a></li>
+            <li><a href="#integration">Integration</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><button class="early-access-btn">Get Early Access</button></li>
+        </ul>
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div class="mobile-nav">
+        <div class="close-btn" onclick="toggleMenu()">X</div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#use-case">Use Case</a></li>
+            <li><a href="#integration">Integration</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><button class="early-access-btn">Get Early Access</button></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="beta-warning">COMING IN BETA</span>
+                <h1>Simplify <span class="highlight">subscription</span> management for your club</h1>
+                <p>Automate membership subscriptions, track payments, and reduce admin tasks, allowing you to focus on growing your club.</p>
+                <button class="discover-btn">Discover More</button>
+            </div>
+            <div class="hero-image">
+                <img src="dashboard.png" alt="Dashboard">
+            </div>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="feature-image">
+            <img src="dashboard_overview.png" alt="User View">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FEATURE</span>
+            <h2>Comprehensive Subscription Management</h2>
+            <p>SARKUS simplifies the entire subscription process by automating payments, reminders, and tracking for your club. Whether you're handling new sign-ups or renewals, our system ensures payments are processed smoothly and securely, reducing the need for manual intervention. Club administrators can view and manage all subscriptions from one dashboard, making it easy to track who has paid and who needs reminders.</p>
+            <button class="early-access-btn">Get Early Access</button>
+        </div>
+    </section>
+    
+    <section class="feature-reverse">
+        <div class="feature-image-reverse">
+            <img src="dashboard_detail.png" alt="Dashboard Feature">
+        </div>
+        <div class="feature-content-reverse">
+            <span class="beta-warning">FEATURE</span>
+            <h2>Customizable Club Dashboard</h2>
+            <p>With SARKUS's intuitive dashboard, club administrators have full control over their operations. You can adjust player information, modify subscription pricing, and even change membership types based on your club’s evolving needs. The dashboard also allows you to manage your club's bank details and automatically generates a payment link that can be shared with members via QR codes or your website for easy access.</p>
+            <button class="early-access-btn">Get Early Access</button>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="feature-image">
+            <img src="user_view.png" alt="User View">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FEATURE</span>
+            <h2>Simple and Efficient User Subscription Form</h2>
+            <p>SARKUS makes it incredibly easy for your members to complete their subscription with a streamlined, user-friendly form. Whether they are new members or renewing their subscription, they can complete the process in just a few clicks. For club administrators, all user data is automatically synced to the dashboard, allowing you to easily maintain, update, and manage member information, pricing, and subscription statuses. SARKUS keeps everything in one place, reducing manual input and simplifying updates whenever needed.</p>
+            <button class="early-access-btn">Get Early Access</button>
+        </div>
+    </section>
+    
+    <section class="characteristics">
+        <div class="characteristic-box">
+            <i class="fa-solid fa-money-bill"></i>
+            <h3>Automated Payments</h3>
+            <p>Members pay their subscriptions easily through secure online payments, and the platform automates tracking and reminders, saving your club hours of manual work.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Increased Revenue</h3>
+            <p>Offer flexible subscription plans tailored to your members, including special rates for new members or promotions, helping you grow club revenue effortlessly.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Time-Saving Management</h3>
+            <p>From managing subscriptions to generating reports, SARKUS automates your administrative tasks, freeing up time to focus on your club’s development.</p>
+        </div>
+    </section>
+    
+    
+    <section class="use-case-section">
+        <span class="beta-warning">USE-CASE</span>
+        <h2>Optimize Your Club's Workflow</h2>
+        <p>From automating subscription payments to tracking your club’s revenue, SARKUS helps you reduce manual tasks and improve member satisfaction. Spend less time managing finances and more time building your community.</p>
+        <button class="learn-more-btn">Learn More</button>
+    </section>
+    
+    <section class="pricing">
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Basic Plan</h3>
+                <p class="price">$9/month</p>
+            </div>
+            <ul>
+                <li>Subscription management</li>
+                <li>Online payments</li>
+                <li>Automated reminders</li>
+            </ul>
+            <button class="notify-btn">Get Notified</button>
+        </div>
+    
+        <div class="pricing-plan highlighted">
+            <span class="beta-warning" style="text-align:center;margin:0 auto 0 auto;">BEST DEAL</span>
+            <div class="info">
+                <h3>Premium Plan</h3>
+                <p class="price">$19/month</p>
+            </div>
+            <ul>
+                <li>Everything in Basic</li>
+                <li>Event & Tournament Management</li>
+                <li>Social Media Insights</li>
+            </ul>
+            <button class="notify-btn">Get Early Access</button>
+        </div>
+    
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Pro Plan</h3>
+                <p class="price">$29/month</p>
+            </div>
+            <ul>
+                <li>Everything in Premium</li>
+                <li>Custom Branding</li>
+                <li>Advanced Reports</li>
+            </ul>
+            <button class="notify-btn">Get Notified</button>
+        </div>
+    </section>
+    
+    <section class="email-notification-section">
+        <div class="email-notification-box">
+            <h2>Empower your <span class="highlight">club</span>.</h2>
+            <p>Save time, increase revenue, and simplify how you handle memberships. SARKUS helps your club grow by removing the admin burden from your subscription management process.</p>
+            <form action="https://submit-form.com/HJev3PdHs" class="email-form">
+                <input type="email" id="email" name="email" placeholder="youremail@gmail.com" required="" />
+                <button type="submit" class="notify-btn-form">Notify me</button>
+            </form>
+        </div>
+    </section>    
+      
+      <!-- Basic Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 SARKUS. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+        function toggleMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        }       
+    </script>
+      
+      
+</body>
+</html>

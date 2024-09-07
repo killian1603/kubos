@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+
+        body{
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        /* Center the form and add styling */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.form-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.answer{
+    font-weight: 500 !important;
+}
+
+.form-group label {
+    display: block;
+    color: #0a0a0a;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-space{
+    margin-bottom: 15px !important;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #eb9928;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #da8f27;
+}
+
+/* Adjust radio button layout */
+
+.radio-group {
+    display: block; /* Ensure each radio button is on its own line */
+}
+
+.radio-group label {
+    display: inline-block; /* Ensure label stays inline with the radio button */
+    margin-left: 5px;
+    margin-bottom: 10px; /* Adds space between options */
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+.message {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="subscriptionForm" class="form-content">
+            <!-- Player and Email Fields -->
+            <div class="form-group">
+                <label for="player">Player</label>
+                <input type="text" id="player" name="player" placeholder="Enter player name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+            </div>
+    
+            <!-- Current Member Question -->
+            <div class="form-group">
+                <label class="add-space">Are you a current member?</label>
+                <div class="radio-group">
+                    <input type="radio" id="memberYes" name="member" value="yes">
+                    <label class="answer" for="memberYes">Yes</label>
+                    <input type="radio" id="memberNo" name="member" value="no">
+                    <label class="answer" for="memberNo">No</label>
+                </div>
+            </div>
+    
+            <!-- New Member Warning -->
+            <div id="newMemberMessage" class="message" style="display: none;">
+                Unfortunately, we do not accept online payment from new members, please reach out to us to meet.
+            </div>
+    
+            <!-- Subscription Duration -->
+            <div id="subscriptionOptions" class="form-group" style="display: none;">
+                <label class="add-space">Subscription Duration</label>
+                <div class="radio-group">
+                    <input type="radio" id="monthly" name="subscription" value="monthly">
+                    <label class="answer" for="monthly">Monthly (<span id="monthlyValidity"></span>)</label><br>
+    
+                    <input type="radio" id="semester" name="subscription" value="semester">
+                    <label class="answer" for="semester">Semester (<span id="semesterValidity"></span>)</label><br>
+    
+                    <input type="radio" id="yearly" name="subscription" value="yearly">
+                    <label class="answer" for="yearly">Yearly (<span id="yearlyValidity"></span>)</label>
+                </div>
+            </div>
+    
+            <!-- License Type -->
+            <div id="licenseOptions" class="form-group" style="display: none;">
+                <label for="license">What type of license do you want?</label>
+                <select id="license" name="license">
+                    <option value="clubPlay">Club Play</option>
+                    <option value="compete">Compete</option>
+                    <option value="competePlus">Compete Plus</option>
+                </select>
+            </div>
+    
+            <!-- Amount to Pay -->
+            <div id="paymentAmount" class="form-group">
+                <label>Amount to pay: <span id="amount">0€</span></label>
+            </div>
+    
+            <!-- Contact Information for New Members -->
+            <div id="contactInfo" class="form-group" style="display: none;">
+                <label>Contact Us:</label>
+                <p>Phone: +123 456 789</p>
+                <p>Email: contact@club.com</p>
+                <p>Address: 123 Club St, City, Country</p>
+            </div>
+    
+            <!-- Go to Payment Button -->
+            <button id="paymentButton" type="submit">Go to Payment</button>
+        </form>
+    </div>
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const memberRadios = document.getElementsByName('member');
+            const subscriptionOptions = document.getElementById('subscriptionOptions');
+            const licenseOptions = document.getElementById('licenseOptions');
+            const newMemberMessage = document.getElementById('newMemberMessage');
+            const paymentAmount = document.getElementById('paymentAmount');
+            const paymentButton = document.getElementById('paymentButton');
+            const contactInfo = document.getElementById('contactInfo');
+            const licenseSelect = document.getElementById('license');
+            const currentDate = new Date().toLocaleDateString();
+            const amountElement = document.getElementById('amount');
+        
+            const prices = {
+                yearly: {
+                    clubPlay: 110,
+                    compete: 125,
+                    competePlus: 130
+                },
+                monthly: {
+                    clubPlay: 110 / 12
+                },
+                semester: {
+                    clubPlay: 110 / 2
+                }
+            };
+        
+            // Update validity dates
+            document.getElementById('monthlyValidity').innerText = `${currentDate} to ${addMonths(1)}`;
+            document.getElementById('semesterValidity').innerText = `${currentDate} to ${addMonths(6)}`;
+            document.getElementById('yearlyValidity').innerText = `${currentDate} to ${addMonths(12)}`;
+        
+            memberRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'yes') {
+                        newMemberMessage.style.display = 'none';
+                        subscriptionOptions.style.display = 'block';
+                        paymentAmount.style.display = 'block';
+                        paymentButton.style.display = 'block';
+                        contactInfo.style.display = 'none';
+                    } else {
+                        newMemberMessage.style.display = 'block';
+                        subscriptionOptions.style.display = 'none';
+                        licenseOptions.style.display = 'none';
+                        paymentAmount.style.display = 'none';
+                        paymentButton.style.display = 'none';
+                        contactInfo.style.display = 'block';
+                    }
+                });
+            });
+        
+            document.querySelectorAll('input[name="subscription"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const subscriptionType = this.value;
+        
+                    if (subscriptionType === 'yearly') {
+                        licenseOptions.style.display = 'block';
+                        licenseSelect.innerHTML = `
+                            <option value="clubPlay">Club Play</option>
+                            <option value="compete">Compete</option>
+                            <option value="competePlus">Compete Plus</option>
+                        `;
+                    } else {
+                        licenseOptions.style.display = 'block';
+                        licenseSelect.innerHTML = `<option value="clubPlay">Club Play</option>`;
+                    }
+        
+                    updateAmount(subscriptionType, licenseSelect.value);
+                });
+            });
+        
+            licenseSelect.addEventListener('change', function() {
+                const subscriptionType = document.querySelector('input[name="subscription"]:checked').value;
+                updateAmount(subscriptionType, this.value);
+            });
+        
+            function addMonths(months) {
+                const date = new Date();
+                date.setMonth(date.getMonth() + months);
+                return date.toLocaleDateString();
+            }
+        
+            function updateAmount(subscriptionType, licenseType) {
+                let price;
+                if (subscriptionType === 'monthly' || subscriptionType === 'semester') {
+                    price = prices[subscriptionType].clubPlay;
+                } else {
+                    price = prices[subscriptionType][licenseType];
+                }
+                amountElement.innerText = `${price.toFixed(2)}€`;
+            }
+        });
+        
+        
+    </script>
+</body>
+</html>

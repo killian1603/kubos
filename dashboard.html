@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            height: 100%;
+            font-size: 14px;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        .nav {
+            z-index: 10;
+            width: 150px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+        }
+        .logo-img {
+            height: 45px;
+        }
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .nav li {
+            margin-bottom: 10px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #0a0a0a;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav a:hover, .nav a.active {
+            background-color: #e0e0e0;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+            margin-left: 200px;
+            margin-right: 50px;
+        }
+
+        .search-bar {
+            position: relative;
+            float: right;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .add-player {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .add-player button, #createSubscriptionType {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            background-color: #eb9928;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-player button:hover, #createSubscriptionType:hover {
+            background-color: #da8f27;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            padding: 10px;
+            color: #5f788a;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        td {
+            color: #0a0a0a;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .payment, .license{
+            cursor: pointer;
+        }
+        .payment-dropdown, .status-dropdown, .license-dropdown {
+            position: absolute;
+            padding-left: 0px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .payment-dropdown li, .status-dropdown li, .license-dropdown li {
+            list-style: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .payment-dropdown li:hover, .status-dropdown li:hover, .license-dropdown li:hover {
+            background-color: #f0f0f0;
+        }
+        .status.active {
+            color: #28a745;
+            background-color: #e6f4ea;
+        }
+        .status.expired {
+            color: #dc3545;
+            background-color: #fbe9eb;
+        }
+        .status.pending {
+            color: #ffc107;
+            background-color: #fff8e1;
+        }
+        .view-selector {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .view-selector button {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #0a0a0a;
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .view-selector button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0a0a0a;
+        }
+        .view-selector button:not(.active)::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+        }
+        .settings-view {
+            display: none;
+        }
+        .settings-section {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .settings-section h2 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .toggle-icon {
+            font-size: 16px;
+        }
+        
+        .section-content {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+        }
+        
+        #saveButton {
+            background-color: #46904c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #saveButton:hover {
+            background-color: #da8f27;
+        }
+        
+        .filter-dropdown {
+            margin-bottom: 10px;
+        }
+        
+        .filter-dropdown-overview {
+            color: #0a0a0a;
+            font-style: italic;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .page-title {
+            color: #0a0a0a;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .subscription-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        .subscription-table, .subscription-table th, .subscription-table td {
+            border: 1px solid #ccc;
+        }
+        
+        .subscription-table th, .subscription-table td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="logo">
+                <img class="logo-img" src="/logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="#" class="active">Subscriptions</a></li>
+                <li><a href="#">Tournament</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="page-title">Manage Your Club Subscriptions'</div>
+            <div class="view-selector">
+                <button onclick="showView('overview')" class="active">Subscription Overview</button>
+                <button onclick="showView('settings')">Subscription Settings</button>
+            </div>
+            <div class="overview-view">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search player">
+                </div>
+                <div class="add-player">
+                    <button>Add player manually</button>
+                </div>
+                <div class="filter-dropdown-overview">
+                    <label for="statusFilter">Filter by Status:</label>
+                    <select id="statusFilter" onchange="filterTable()">
+                        <option value="all">All</option>
+                        <option value="active">Active</option>
+                        <option value="expired">Expired</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+                <table id="subscriptionTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Player</th>
+                            <th onclick="sortTable(1)">Email</th>
+                            <th onclick="sortTable(2)">License Type</th>
+                            <th onclick="sortTable(3)">Start Date</th>
+                            <th onclick="sortTable(4)">End Date</th>
+                            <th onclick="sortTable(5)">Means of Payment</th>
+                            <th onclick="sortTable(6)">Subscription Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td ondblclick="editCell(this)">john@email.co</td>
+                            <td class="license" onclick="showDropdown(this, 'license')">Club Play</td>
+                            <td ondblclick="editCell(this)">01-01-23</td>
+                            <td ondblclick="editCell(this)">01-08-25</td>
+                            <td><span class="payment" onclick="showDropdown(this, 'payment')">Credit Card</span></td>
+                            <td><span class="status active" onclick="showDropdown(this, 'status')">Active</span></td>
+                            <td class="action"></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td ondblclick="editCell(this)">jane@email.co</td>
+                            <td class="license" onclick="showDropdown(this, 'license')">Compete</td>
+                            <td ondblclick="editCell(this)">01-06-23</td>
+                            <td ondblclick="editCell(this)">01-12-23</td>
+                            <td><span class="payment" onclick="showDropdown(this, 'payment')">PayPal</span></td>
+                            <td><span class="status expired" onclick="showDropdown(this, 'status')">Expired</span></td>
+                            <td class="action">Send reminder email</td>
+                        </tr>
+                        <tr>
+                            <td>Bob Johnson</td>
+                            <td ondblclick="editCell(this)">bob@email.co</td>
+                            <td class="license" onclick="showDropdown(this, 'license')">Compete Plus</td>
+                            <td ondblclick="editCell(this)">15-11-23</td>
+                            <td ondblclick="editCell(this)">31-08-24</td>
+                            <td><span class="payment" onclick="showDropdown(this, 'payment')">Bank Transfer</span></td>
+                            <td><span class="status pending" onclick="showDropdown(this, 'status')">Pending</span></td>
+                            <td class="action"></td>
+                        </tr>
+                    </tbody>
+                </table>                
+            </div>
+            <div class="settings-view">
+                <p style="margin-bottom: -5px;" for="">Copy the user form or get the QR code by <span style="text-decoration: underline;">clicking here</span></p><br>
+                <input class="link" style="border: none; border-radius:5px; background-color:#f9f9f9; padding: 0.5rem 1rem; margin-bottom:15px" type="email" name="" id="" placeholder="www.email.co">
+
+                <div class="settings-section">
+                    <h2 >User Form Design <span class="toggle-icon">▼</span></h2>
+                    <div class="section-content">
+                        <p style="font-weight:bold;">Do you accept new members online?</p>
+                        <label><input type="radio" name="acceptMembers" value="yes" onclick="toggleTextarea(false)"> Yes</label>
+                        <label><input type="radio" name="acceptMembers" value="no" onclick="toggleTextarea(true)"> No</label>
+                        <textarea id="noMembersTextarea" style="display: none;">Sorry we don't accept payment of new members online</textarea>
+                        <p style="font-weight:bold;">Which type of subscription do you offer?</p>
+                        <label><input type="checkbox" name="subscriptionType" value="monthly"> Monthly</label>
+                        <label><input type="checkbox" name="subscriptionType" value="semester"> Semester</label>
+                        <label><input type="checkbox" name="subscriptionType" style="margin-bottom: 20px;" value="yearly"> Yearly</label><br>
+                        <button id="createSubscriptionType">Create New Subscription Type</button>
+                        <table class="subscription-table">
+                            <thead>
+                                <tr>
+                                    <th>License Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Period</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Club Play</td>
+                                    <td>110€</td>
+                                    <td>To play recreatively</td>
+                                    <td>1 year</td>
+                                    <td><button class="delete-btn">🗑️</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Bank Information</h3>
+                        <p>Bank Name: Example Bank</p>
+                        <p>Account Number: 1234567890</p>
+                        <p>IBAN: DE89 3704 0044 0532 0130 00</p>
+                        <p>BIC: EXAMPLEXXX</p>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h2>Email Setup <span class="toggle-icon">▼</span></h2>
+                    <div class="section-content">
+                        <select id="emailType">
+                            <option value="expired">Expired</option>
+                            <option value="soon-expired">Soon Expired</option>
+                            <option value="failed-payment">Failed Payment</option>
+                        </select>
+                        <textarea id="emailContent">Dear {Player},
+            
+            Your subscription has expired. Please renew your subscription to continue enjoying our services.
+            
+            Best regards,
+            The Team</textarea>
+                    </div>
+                </div>
+                <button id="saveButton" onclick="saveSettings()">Save</button>
+            </div>
+            
+            
+        </main>
+    </div>
+    <script>
+        function showView(view) {
+            document.querySelector('.overview-view').style.display = view === 'overview' ? 'block' : 'none';
+            document.querySelector('.settings-view').style.display = view === 'settings' ? 'block' : 'none';
+            document.querySelector('.search-bar').style.display = view === 'overview' ? 'block' : 'none';
+            document.querySelectorAll('.view-selector button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.view-selector button:nth-child(${view === 'overview' ? 1 : 2})`).classList.add('active');
+        }
+        
+        function filterTable() {
+            const filter = document.getElementById('statusFilter').value;
+            const rows = document.getElementById('subscriptionTable').getElementsByTagName('tr');
+            
+            for (let i = 1; i < rows.length; i++) {
+                const statusCell = rows[i].getElementsByTagName('td')[6];
+                const status = statusCell.textContent.toLowerCase();
+                if (filter === 'all' || status === filter) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+        
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("subscriptionTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+        
+        function showDropdown(element, type) {
+            // Remove any existing dropdowns
+            document.querySelectorAll('.status-dropdown, .payment-dropdown, .license-dropdown').forEach(el => el.remove());
+        
+            // Create the dropdown
+            const dropdown = document.createElement('ul');
+            dropdown.classList.add(type + '-dropdown');
+        
+            // Add options to the dropdown
+            let options = [];
+            if (type === 'payment') {
+                options = ['Cash', 'Bank Transfer', 'PayPal'];
+            } else if (type === 'status') {
+                options = ['Active', 'Expired', 'Pending'];
+            } else if (type === 'license') {
+                options = ['Compete', 'Compete Plus', 'Club Play'];
+            }
+        
+            options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.onclick = function() {
+                    if (type === 'status') {
+                        updateStatus(element, option.toLowerCase());
+                    } else {
+                        element.textContent = option;
+                    }
+                    dropdown.remove();
+                };
+                dropdown.appendChild(li);
+            });
+        
+            // Position the dropdown
+            const rect = element.getBoundingClientRect();
+            dropdown.style.top = rect.bottom + 'px';
+            dropdown.style.left = rect.left + 'px';
+        
+            // Append the dropdown to the body
+            document.body.appendChild(dropdown);
+        }
+        
+        function updateStatus(element, status) {
+            const statusElement = element;
+            statusElement.className = `status ${status}`;
+            statusElement.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            const actionCell = statusElement.parentNode.nextElementSibling;
+            actionCell.textContent = status === 'expired' ? 'Send reminder email' : '';
+        }
+        
+        function editCell(cell) {
+            const originalContent = cell.textContent;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = originalContent;
+            input.onblur = function() {
+                cell.textContent = input.value;
+            };
+            input.onkeydown = function(event) {
+                if (event.key === 'Enter') {
+                    cell.textContent = input.value;
+                }
+            };
+            cell.textContent = '';
+            cell.appendChild(input);
+            input.focus();
+        }
+        
+        // Close the dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('.status, .payment, .license')) {
+                document.querySelectorAll('.status-dropdown, .payment-dropdown, .license-dropdown').forEach(el => el.remove());
+            }
+        });
+        
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
+        
+        function toggleTextarea(show) {
+            const textarea = document.getElementById('noMembersTextarea');
+            textarea.style.display = show ? 'block' : 'none';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.settings-section h2').forEach(header => {
+                header.addEventListener('click', () => toggleSection(header));
+            });
+        });
+        
+        
+    </script>
+</body>
+</html>

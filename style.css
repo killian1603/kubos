@@ -1,0 +1,715 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color:#0a0a0a;
+  }
+  
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo-img {
+    max-height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center; /* Center vertically */
+}
+
+.nav-links li {
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #EB9928;
+    transition: width 0.3s ease, right 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    right: 0;
+}
+
+.early-access-btn {
+    font-size: 18px;
+    background-color: #EB9928;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.early-access-btn:hover {
+    background-color: #d57f22;
+}
+
+/* Burger Menu */
+.burger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white; /* Set background to white */
+    z-index: 20;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Center text */
+}
+
+.mobile-nav li {
+    margin: 20px 0;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .burger-menu {
+        display: block;
+    }
+}  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 2rem;
+    background-size: cover;
+    overflow: hidden; /* Ensure the image does not overflow */
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: row; /* Ensures the image is beside the text on larger screens */
+    justify-content: space-between;
+    width: 100%; /* Ensure full width usage */
+  }
+  
+  .hero-text {
+    text-align: left;
+    flex: 0.75; /* Allows the text area to take up available space */
+    margin-top: 100px;
+  }
+  
+  h1 {
+    margin-top: 20px;
+    font-size: 60px;
+    text-transform: capitalize;
+  }
+  
+  .hero-text p {
+    margin: 15px 0px 20px 0px;
+    font-size: 24px;
+  }
+  
+  .beta-warning {
+    background-color: rgba(235, 153, 40, 0.1);
+    color: #EB9928;
+    padding: 0.2rem 1rem;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  h1 .highlight {
+    color: #EB9928;
+  }
+  
+  .discover-btn {
+    font-size: 18px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    border: 2px solid #EB9928;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.02);
+  }
+  
+  .discover-btn:hover {
+    zoom: 1.01;
+  }
+  
+  .hero-image {
+    flex: 1.25; /* Makes the image take the remaining space */
+    position: relative;
+    right: -50px; /* Moves the image slightly to the right */
+    overflow: hidden; /* Ensures part of the image outside the container is hidden */
+  }
+  
+  .hero-image img {
+    width: 120%;
+    max-width: none; /* Prevents the image from being constrained */
+    object-fit: cover;
+  }
+  
+  /* Media Query for Smaller Screens */
+  @media (max-width: 768px) {
+
+    h1{
+        font-size: 40px;
+    }
+    .hero {
+      padding: 2rem 1rem;
+      flex-direction: column;
+    }
+
+    .hero-text{
+        margin-top: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    .hero-text p{
+        font-size: 20px;
+    }
+
+    .discover-btn{
+        font-size: 16px;
+    }
+  
+    .hero-content {
+      flex-direction: column; /* Stacks the image and text */
+    }
+  
+    .hero-image {
+      right: 0;
+      margin-top: 20px;
+      width: 100%; /* Ensure it fits the screen width on smaller devices */
+    }
+  
+    .hero-image img {
+      width: 100%;
+      object-fit: contain; /* Ensures it fits properly on smaller screens */
+    }
+  }
+  
+  
+/* Features Section */
+.features-section, .feature-reverse {
+    display: flex;
+    align-items: center;
+    padding: 4rem 5rem; /* Added space on left and right */
+  }
+  
+  .feature-reverse {
+    flex-direction: row-reverse; /* Image on the right, text on the left */
+  }
+  
+  /* Adjusting space between text and image */
+  .feature-image {
+    margin-left: 70px;
+    margin-right: 20px; /* Add space between text and image */
+    flex: 1 1 40%; /* Image takes less space, approx. 40% */
+  }
+
+  .feature-image-reverse {
+    margin-left: 20px;
+    margin-right: 70px; /* Add space between text and image */
+    flex: 1 1 40%; /* Image takes less space, approx. 40% */
+  }
+  
+  .feature-image img, .feature-image-reverse img {
+    max-width: 100%; /* Ensure the image fills the available space */
+    display: block;
+  }
+  
+  .feature-content {
+    flex: 1 1 55%; /* Text takes more space, approx. 55% */
+    text-align: left;
+    margin-left: 20px; /* Space between image and text */
+  }
+
+  .feature-content-reverse {
+    flex: 1 1 55%; /* Text takes more space, approx. 55% */
+    text-align: right;
+    margin-right: 120px; /* Space between image and text */
+  }
+  
+  /* Adding spacing between elements */
+  .feature-content h2, .feature-content-reverse h2 {
+    font-size: 34px;
+    margin: 20px 0px 15px; /* Space between title and paragraph */
+  }
+  
+  .feature-content p{
+    padding-right: 100px;
+    font-size: 18px;
+    margin-bottom: 20px; /* Space between paragraph and button */
+  }
+
+  .feature-content-reverse p {
+    padding-left: 100px;
+    font-size: 18px;
+    margin-bottom: 20px; /* Space between paragraph and button */
+  }
+  
+  .early-access-btn {
+    color: white;
+    font-size: 18px;
+    background-color: #EB9928;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .early-access-btn:hover {
+    zoom: 1.01;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .features-section, .feature-reverse {
+      flex-direction: column; /* Stack the image and text on small screens */
+      padding: 2rem 1rem; /* Less padding on smaller screens */
+    }
+  
+    .feature-image, .feature-image-reverse {
+      margin: 0 auto 20px auto !important; /* Center the image on small screens */
+      width: 100%;
+    }
+  
+    .feature-content {
+      margin-left: 0; /* Remove extra spacing on smaller screens */
+    }
+
+    .feature-content p{
+        padding-right: 0;
+    }
+
+    .feature-content-reverse p{
+        padding-left: 0;
+    }
+
+    .feature-content-reverse {
+        text-align: left;
+        margin-right: 0;
+        margin-left: 0; /* Remove extra spacing on smaller screens */
+    }
+
+    .early-access-btn{
+        font-size: 16px;
+    }
+  }
+  
+  /* Characteristics Section */
+.characteristics {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 7rem 20rem;
+    gap: 20px; /* Add space between boxes */
+    text-align: center; /* Center the content horizontally */
+  }
+  
+ 
+  .characteristic-box {
+    width: 30%; /* Set width to 30% for three boxes side-by-side */
+    padding: 0.5rem 1rem;
+    border: 2px solid #eb9a2870;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+  }
+  
+  .characteristic-box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  }
+  
+  .characteristic-box i {
+    display: flex;
+    font-size: 30px;
+    color: #EB9928;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .characteristic-box h3 {
+    text-align: left;
+    font-size: 28px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .characteristic-box p {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .characteristic-box {
+      width: 100%; /* Stack boxes on smaller screens */
+      margin-bottom: 20px;
+    }
+  }
+
+  /* Use Case Section */
+.use-case-section {
+    padding: 4rem 2rem;
+    text-align: center; /* Center content horizontally */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow effect */
+  }
+  
+  
+  /* Title and Paragraph */
+  .use-case-section h2 {
+    font-size: 32px;
+    margin: 20px 0 15px;
+    color: #333; /* Darker text for contrast */
+  }
+  
+  .use-case-section p {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555; /* Slightly muted text for paragraph */
+  }
+  
+  /* Learn More Button */
+  .learn-more-btn {
+    font-size: 18px;
+    background-color: #EB9928;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .learn-more-btn:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .use-case-section {
+      padding: 3rem 1rem;
+    }
+
+    .learn-more-btn{
+        font-size: 16px;
+    }
+  
+    .use-case-section h2 {
+      font-size: 28px;
+    }
+  
+    .use-case-section p {
+      font-size: 16px;
+    }
+
+    .characteristics{
+        padding: 4rem 3rem;
+    }
+  }
+  
+  
+  /* Pricing Section */
+  .pricing {
+    display: flex;
+    justify-content: space-around;
+    padding: 7rem 3rem;
+    flex-wrap: wrap;
+}
+
+.pricing-plan {
+    background: white;
+    border: 1px solid #0a0a0a63;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 30%;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pricing-plan ul {
+    flex-grow: 1;
+}
+
+.pricing-plan li {
+    font-size: 18px;
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.pricing-plan.highlighted {
+    border: 1px solid #EB9928 !important;
+    transform: scale(1.1);
+    height: 360px;
+}
+
+.pricing-plan.highlighted .info {
+    margin-top: 20px;
+}
+
+.pricing-plan.highlighted .info h3 {
+    font-size: 20px;
+}
+
+.pricing-plan.highlighted .info .price {
+    font-size: 18px;
+}
+
+.notify-btn {
+    font-size: 18px;
+    background-color: #EB9928;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    align-self: center;
+}
+
+.notify-btn:hover {
+    background-color: #d57f22;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .pricing-plan {
+        width: 100%; /* Make each plan take full width */
+        margin-bottom: 30px;
+    }
+
+    .pricing{
+        padding: 5rem 3rem 3rem;
+    }
+    .notify-btn{
+        padding: 1rem 3rem;
+    }
+
+    .pricing-plan li {
+        font-size: 16px;
+    }
+
+    .notify-btn{
+        font-size: 16px;
+    }
+}
+  
+/* Email Notification Section */
+.email-notification-section {
+    background-color: #f9f9f9;
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .email-notification-box {
+    background-color: white;
+    border: 1px solid #EB9928; /* Orange border */
+    border-radius: 10px;
+    padding: 8rem 7rem;
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .email-notification-box h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .email-notification-box p {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+  
+  .email-notification-box .highlight {
+    color: #EB9928; /* Orange color for 'business' */
+  }
+  
+  /* Email Form */
+  .email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .email-form input[type="email"] {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 18px;
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .email-form input[type="email"]::placeholder {
+    color: #aaa;
+  }
+  
+  /* Notify Button */
+  .notify-btn-form {
+    background-color: #EB9928;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .notify-btn-form:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #0a0a0a;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: white;
+  }
+  
+  .footer-content p {
+    color: white;
+    margin: 0 0 1rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-links li {
+    display: inline;
+  }
+  
+  .footer-links a {
+    color: #EB9928;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .email-notification-box {
+      padding: 2rem 1rem;
+    }
+
+    .email-notification-box h2{
+        font-size: 34px;
+    }
+
+    .email-notification-box p{
+        font-size: 16px;
+    }
+  
+    .email-form {
+      flex-direction: column;
+    }
+  
+    .email-form input[type="email"] {
+      margin-bottom: 1rem;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    .email-form input[type="email"]{
+        font-size: 16px;
+    }
+
+    .notify-btn-form{
+        font-size: 16px;
+    }
+  
+  
+    .footer-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
