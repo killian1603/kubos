@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Klubos - Software de Gestión de Clubes</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img class="logo-img" src="/logo.png" alt="">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#features">Funciones</a></li>
+            <li><a href="#use-case">Caso de Uso</a></li>
+            <li><a href="#pricing">Precios</a></li>
+            <li><a href="#email-notification-section" class="early-access-btn">Acceso Anticipado</a></li>
+        </ul>
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div class="mobile-nav">
+        <div class="close-btn" onclick="toggleMenu()">X</div>
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#features">Funciones</a></li>
+            <li><a href="#use-case">Caso de Uso</a></li>
+            <li><a href="#pricing">Precios</a></li>
+            <li><a href="#email-notification-section" class="early-access-btn">Acceso Anticipado</a></li>
+        </ul>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="beta-warning">PRÓXIMAMENTE EN BETA</span>
+                <h1>Simplifica la gestión de <span class="highlight">suscripciones</span> para tu club</h1>
+                <p>Automatiza las suscripciones de membresía, realiza el seguimiento de pagos y reduce tareas administrativas, permitiéndote enfocarte en el crecimiento de tu club.</p>
+                <a href="#email-notification-section" class="discover-btn">Descubre Más</a>
+            </div>
+            <div class="hero-image">
+                <img src="dashboard.png" alt="Panel de Control">
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="features-section">
+        <div class="feature-image">
+            <img src="dashboard_overview.png" alt="Vista del Usuario">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FUNCIÓN</span>
+            <h2>Gestión Integral de Suscripciones</h2>
+            <p>Klubos simplifica todo el proceso de suscripción al automatizar pagos, recordatorios y seguimiento para tu club. Ya sea gestionando nuevas inscripciones o renovaciones, nuestro sistema garantiza que los pagos se procesen de manera fluida y segura, reduciendo la necesidad de intervención manual. Los administradores del club pueden ver y gestionar todas las suscripciones desde un solo panel, facilitando el seguimiento de quién ha pagado y quién necesita recordatorios.</p>
+            <a href="#email-notification-section" class="early-access-btn">Acceso Anticipado</a>
+        </div>
+    </section>
+    
+    <section class="feature-reverse">
+        <div class="feature-image-reverse">
+            <img src="dashboard_detail.png" alt="Función del Panel de Control">
+        </div>
+        <div class="feature-content-reverse">
+            <span class="beta-warning">FUNCIÓN</span>
+            <h2>Panel de Control Personalizable para el Club</h2>
+            <p>Con el intuitivo panel de control de Klubos, los administradores del club tienen control total sobre sus operaciones. Puedes ajustar la información de los jugadores, modificar los precios de suscripción e incluso cambiar los tipos de membresía según las necesidades cambiantes de tu club. El panel también te permite gestionar los detalles bancarios del club y genera automáticamente un enlace de pago que puede compartirse con los miembros a través de códigos QR o tu sitio web para un acceso sencillo.</p>
+            <a href="#email-notification-section" class="early-access-btn">Acceso Anticipado</a>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="feature-image">
+            <img src="user_view.png" alt="Vista del Usuario">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FUNCIÓN</span>
+            <h2>Formulario de Suscripción Simple y Eficiente</h2>
+            <p>Klubos facilita increíblemente que tus miembros completen su suscripción mediante un formulario optimizado y fácil de usar. Ya sea que se trate de nuevos miembros o renovaciones, pueden completar el proceso en solo unos clics. Para los administradores del club, todos los datos de los usuarios se sincronizan automáticamente con el panel de control, lo que te permite mantener, actualizar y gestionar fácilmente la información de los miembros, los precios y los estados de suscripción. Klubos mantiene todo en un solo lugar, reduciendo la entrada manual y simplificando las actualizaciones cuando sea necesario.</p>
+            <a href="#email-notification-section" class="early-access-btn">Acceso Anticipado</a>
+        </div>
+    </section>
+    
+    <section class="characteristics">
+        <div class="characteristic-box">
+            <i class="fa-solid fa-money-bill"></i>
+            <h3>Pagos Automatizados</h3>
+            <p>Los miembros pagan sus suscripciones fácilmente a través de pagos en línea seguros, y la plataforma automatiza el seguimiento y los recordatorios, ahorrándole a tu club horas de trabajo manual.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Incremento de Ingresos</h3>
+            <p>Ofrece planes de suscripción flexibles adaptados a tus miembros, incluidos tarifas especiales para nuevos miembros o promociones, ayudándote a aumentar los ingresos del club sin esfuerzo.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Gestión Ahorra Tiempo</h3>
+            <p>Desde la gestión de suscripciones hasta la generación de informes, Klubos automatiza tus tareas administrativas, liberando tiempo para que te concentres en el desarrollo de tu club.</p>
+        </div>
+    </section>
+    
+    <section id="use-case" class="use-case-section">
+        <span class="beta-warning">CASO DE USO</span>
+        <h2>Optimiza el Flujo de Trabajo de tu Club</h2>
+        <p>Desde la automatización de los pagos de suscripción hasta el seguimiento de los ingresos de tu club, Klubos te ayuda a reducir las tareas manuales y mejorar la satisfacción de los miembros. Pasa menos tiempo gestionando las finanzas y más tiempo construyendo tu comunidad.</p>
+        <a href="#email-notification-section" class="learn-more-btn">Aprende Más</a>
+    </section>
+    
+    <section id="pricing" class="pricing">
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Plan Básico</h3>
+                <p class="price">9€/mes</p>
+            </div>
+            <ul>
+                <li>Gestión de suscripciones</li>
+                <li>Pagos en línea</li>
+                <li>Recordatorios automatizados</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Notifícame</a>
+        </div>
+    
+        <div class="pricing-plan highlighted">
+            <span class="beta-warning" style="text-align:center;margin:0 auto 0 auto;">MEJOR OFERTA</span>
+            <div class="info">
+                <h3>Plan Premium</h3>
+                <p class="price">19€/mes</p>
+            </div>
+            <ul>
+                <li>Todo en el Plan Básico</li>
+                <li>Gestión de Eventos y Torneos</li>
+                <li>Información en Redes Sociales</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Acceso Anticipado</a>
+        </div>
+    
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Plan Pro</h3>
+                <p class="price">29€/mes</p>
+            </div>
+            <ul>
+                <li>Todo en el Plan Premium</li>
+                <li>Marca Personalizada</li>
+                <li>Informes Avanzados</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Notifícame</a>
+        </div>
+    </section>
+    
+    <section id="email-notification-section" class="email-notification-section">
+        <div class="email-notification-box">
+            <h2>Potencia tu <span class="highlight">club</span>.</h2>
+            <p>Ahorra tiempo, aumenta los ingresos y simplifica cómo gestionas las membresías. Klubos ayuda a que tu club crezca al eliminar la carga administrativa de tu proceso de gestión de suscripciones.</p>
+            <form action="https://submit-form.com/HJev3PdHs" class="email-form">
+                <input type="email" id="email" name="email" placeholder="tucorreo@gmail.com" required="" />
+                <button type="submit" class="notify-btn-form">Notifícame</button>
+            </form>
+        </div>
+    </section>    
+      
+    <!-- Basic Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Klubos. Todos los derechos reservados.</p>
+          <ul class="footer-links">
+            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="#">Términos de Servicio</a></li>
+            <li><a href="#">Contáctanos</a></li>
+          </ul>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        }       
+    </script>
+      
+</body>
+</html>

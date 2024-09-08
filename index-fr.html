@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Klubos - Logiciel de gestion de club</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img class="logo-img" src="/logo.png" alt="">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Acceuil</a></li>
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#use-case">Cas d'utilisation</a></li>
+            <li><a href="#pricing">Tarification</a></li>
+            <li><a href="#email-notification-section" class="early-access-btn">Accès anticipé</a></li>
+        </ul>
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div class="mobile-nav">
+        <div class="close-btn" onclick="toggleMenu()">X</div>
+        <ul>
+            <li><a href="#home">Acceuil</a></li>
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#use-case">Cas d'utilisation</a></li>
+            <li><a href="#pricing">Tarification</a></li>
+            <li><a href="#email-notification-section" class="early-access-btn">Accès anticipé</a></li>
+        </ul>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="beta-warning">DISPONIBLE EN BÊTA</span>
+                <h1>Simplifiez la gestion des <span class="highlight">abonnements</span> pour votre club</h1>
+                <p>Automatisez les abonnements des membres, suivez les paiements et réduisez les tâches administratives, vous permettant de vous concentrer sur la croissance de votre club.</p>
+                <a href="#email-notification-section" class="discover-btn">En savoir plus</a>
+            </div>
+            <div class="hero-image">
+                <img src="dashboard.png" alt="Tableau de bord">
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="features-section">
+        <div class="feature-image">
+            <img src="dashboard_overview.png" alt="Vue utilisateur">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FONCTIONNALITÉ</span>
+            <h2>Gestion complète des abonnements</h2>
+            <p>Klubos simplifie tout le processus d'abonnement en automatisant les paiements, les rappels et le suivi pour votre club. Que vous gériez de nouvelles inscriptions ou des renouvellements, notre système garantit que les paiements sont traités en douceur et en toute sécurité, réduisant ainsi le besoin d'intervention manuelle. Les administrateurs de club peuvent consulter et gérer tous les abonnements depuis un seul tableau de bord, facilitant ainsi le suivi des paiements et des rappels.</p>
+            <a href="#email-notification-section" class="early-access-btn">Accès anticipé</a>
+        </div>
+    </section>
+    
+    <section class="feature-reverse">
+        <div class="feature-image-reverse">
+            <img src="dashboard_detail.png" alt="Fonctionnalité du tableau de bord">
+        </div>
+        <div class="feature-content-reverse">
+            <span class="beta-warning">FONCTIONNALITÉ</span>
+            <h2>Tableau de bord personnalisable pour le club</h2>
+            <p>Avec le tableau de bord intuitif de Klubos, les administrateurs de club ont un contrôle total sur leurs opérations. Vous pouvez ajuster les informations des membres, modifier les prix des abonnements et même changer les types d'adhésion en fonction de l'évolution des besoins de votre club. Le tableau de bord vous permet également de gérer les détails bancaires de votre club et génère automatiquement un lien de paiement que vous pouvez partager avec les membres via des codes QR ou votre site web pour un accès facile.</p>
+            <a href="#email-notification-section" class="early-access-btn">Accès anticipé</a>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="feature-image">
+            <img src="user_view.png" alt="Vue utilisateur">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FONCTIONNALITÉ</span>
+            <h2>Formulaire d'abonnement simple et efficace</h2>
+            <p>Klubos rend incroyablement facile pour vos membres de compléter leur abonnement grâce à un formulaire simplifié et convivial. Qu'il s'agisse de nouveaux membres ou de renouvellements, ils peuvent terminer le processus en quelques clics. Pour les administrateurs de club, toutes les données des utilisateurs sont automatiquement synchronisées avec le tableau de bord, vous permettant de maintenir, mettre à jour et gérer facilement les informations des membres, les prix et les statuts des abonnements. Klubos centralise tout, réduisant les saisies manuelles et simplifiant les mises à jour.</p>
+            <a href="#email-notification-section" class="early-access-btn">Accès anticipé</a>
+        </div>
+    </section>
+    
+    <section class="characteristics">
+        <div class="characteristic-box">
+            <i class="fa-solid fa-money-bill"></i>
+            <h3>Paiements automatisés</h3>
+            <p>Les membres paient facilement leurs abonnements via des paiements en ligne sécurisés, et la plateforme automatise le suivi et les rappels, économisant des heures de travail manuel à votre club.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Revenus accrus</h3>
+            <p>Proposez des plans d'abonnement flexibles adaptés à vos membres, y compris des tarifs spéciaux pour les nouveaux membres ou des promotions, vous aidant à accroître les revenus de votre club sans effort.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Gestion du temps optimisée</h3>
+            <p>De la gestion des abonnements à la génération de rapports, Klubos automatise vos tâches administratives, libérant du temps pour vous concentrer sur le développement de votre club.</p>
+        </div>
+    </section>
+    
+    <section id="use-case" class="use-case-section">
+        <span class="beta-warning">CAS D'UTILISATION</span>
+        <h2>Optimisez le flux de travail de votre club</h2>
+        <p>De l'automatisation des paiements d'abonnement au suivi des revenus de votre club, Klubos vous aide à réduire les tâches manuelles et à améliorer la satisfaction des membres. Passez moins de temps à gérer les finances et plus de temps à bâtir votre communauté.</p>
+        <a href="#email-notification-section" class="learn-more-btn">En savoir plus</a>
+    </section>
+    
+    <section id="pricing" class="pricing">
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Plan de base</h3>
+                <p class="price">9€/mois</p>
+            </div>
+            <ul>
+                <li>Gestion des abonnements</li>
+                <li>Paiements en ligne</li>
+                <li>Rappels automatiques</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Soyez notifié</a>
+        </div>
+    
+        <div class="pricing-plan highlighted">
+            <span class="beta-warning" style="text-align:center;margin:0 auto 0 auto;">MEILLEUR CHOIX</span>
+            <div class="info">
+                <h3>Plan Premium</h3>
+                <p class="price">19€/mois</p>
+            </div>
+            <ul>
+                <li>Toutes les fonctionnalités du plan de base</li>
+                <li>Gestion des événements et tournois</li>
+                <li>Analyses des réseaux sociaux</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Accès anticipé</a>
+        </div>
+    
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Plan Pro</h3>
+                <p class="price">29€/mois</p>
+            </div>
+            <ul>
+                <li>Toutes les fonctionnalités du plan Premium</li>
+                <li>Personnalisation de la marque</li>
+                <li>Rapports avancés</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Soyez notifié</a>
+        </div>
+    </section>
+    
+    <section id="email-notification-section" class="email-notification-section">
+        <div class="email-notification-box">
+            <h2>Donnez plus de puissance à votre <span class="highlight">club</span>.</h2>
+            <p>Gagnez du temps, augmentez vos revenus et simplifiez la gestion des abonnements. Klubos aide votre club à grandir en supprimant la charge administrative liée à la gestion des abonnements.</p>
+            <form action="https://submit-form.com/HJev3PdHs" class="email-form">
+                <input type="email" id="email" name="email" placeholder="votreemail@gmail.com" required="" />
+                <button type="submit" class="notify-btn-form">Prévenez-moi</button>
+            </form>
+        </div>
+    </section>    
+      
+      <!-- Basic Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Klubos. Tous droits réservés.</p>
+          <ul class="footer-links">
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Conditions d'utilisation</a></li>
+            <li><a href="#">Contactez-nous</a></li>
+          </ul>
+        </div>
+      </footer>
+
+      <script>
+        function toggleMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        }       
+    </script>
+      
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Klubos - Clubbeheer Software</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img class="logo-img" src="/logo.png" alt="">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Startpagina</a></li>
+            <li><a href="#features">Functies</a></li>
+            <li><a href="#use-case">Gebruikscase</a></li>
+            <li><a href="#pricing">Prijzen</a></li>
+            <li><a href="#email-notification-section" class="early-access-btn">Krijg Vroege Toegang</a></li>
+        </ul>
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div class="mobile-nav">
+        <div class="close-btn" onclick="toggleMenu()">X</div>
+        <ul>
+            <li><a href="#home">Startpagina</a></li>
+            <li><a href="#features">Functies</a></li>
+            <li><a href="#use-case">Gebruikscase</a></li>
+            <li><a href="#pricing">Prijzen</a></li>
+            <li><a href="#email-notification-section" class="early-access-btn">Krijg Vroege Toegang</a></li>
+        </ul>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="beta-warning">BETA BINNENKORT</span>
+                <h1>Vereenvoudig het beheer van <span class="highlight">abonnementen</span> voor uw club</h1>
+                <p>Automatiseer lidmaatschapsabonnementen, volg betalingen en verminder administratieve taken, zodat u zich kunt concentreren op de groei van uw club.</p>
+                <a href="#email-notification-section" class="discover-btn">Ontdek Meer</a>
+            </div>
+            <div class="hero-image">
+                <img src="dashboard.png" alt="Dashboard">
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="features-section">
+        <div class="feature-image">
+            <img src="dashboard_overview.png" alt="Gebruikersweergave">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FUNCTIE</span>
+            <h2>Uitgebreid Abonnementbeheer</h2>
+            <p>Klubos vereenvoudigt het hele abonnementsproces door betalingen, herinneringen en het volgen van uw club te automatiseren. Of u nu nieuwe inschrijvingen of verlengingen beheert, ons systeem zorgt ervoor dat betalingen soepel en veilig worden verwerkt, waardoor handmatige interventie overbodig wordt. Clubbeheerders kunnen alle abonnementen vanuit één dashboard beheren, waardoor het eenvoudig is om bij te houden wie heeft betaald en wie herinneringen nodig heeft.</p>
+            <a href="#email-notification-section" class="early-access-btn">Krijg Vroege Toegang</a>
+        </div>
+    </section>
+    
+    <section class="feature-reverse">
+        <div class="feature-image-reverse">
+            <img src="dashboard_detail.png" alt="Dashboard Functie">
+        </div>
+        <div class="feature-content-reverse">
+            <span class="beta-warning">FUNCTIE</span>
+            <h2>Aanpasbaar Club Dashboard</h2>
+            <p>Met het intuïtieve dashboard van Klubos hebben clubbeheerders volledige controle over hun operaties. U kunt de informatie van spelers aanpassen, de prijzen van abonnementen wijzigen en zelfs de soorten lidmaatschap wijzigen op basis van de veranderende behoeften van uw club. Het dashboard stelt u ook in staat om de bankgegevens van uw club te beheren en genereert automatisch een betalingslink die eenvoudig kan worden gedeeld met leden via QR-codes of uw website voor gemakkelijke toegang.</p>
+            <a href="#email-notification-section" class="early-access-btn">Krijg Vroege Toegang</a>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="feature-image">
+            <img src="user_view.png" alt="Gebruikersweergave">
+        </div>
+        <div class="feature-content">
+            <span class="beta-warning">FUNCTIE</span>
+            <h2>Eenvoudig en Efficiënt Abonnementsformulier voor Gebruikers</h2>
+            <p>Klubos maakt het voor uw leden ongelooflijk eenvoudig om hun abonnement af te ronden met een gestroomlijnd en gebruiksvriendelijk formulier. Of ze nu nieuwe leden zijn of hun abonnement verlengen, ze kunnen het proces in slechts enkele klikken voltooien. Voor clubbeheerders worden alle gebruikersgegevens automatisch gesynchroniseerd met het dashboard, zodat u eenvoudig lidinformatie, prijzen en abonnementsstatussen kunt beheren. Klubos houdt alles op één plek, waardoor handmatige invoer wordt verminderd en updates eenvoudig kunnen worden uitgevoerd.</p>
+            <a href="#email-notification-section" class="early-access-btn">Krijg Vroege Toegang</a>
+        </div>
+    </section>
+    
+    <section class="characteristics">
+        <div class="characteristic-box">
+            <i class="fa-solid fa-money-bill"></i>
+            <h3>Geautomatiseerde Betalingen</h3>
+            <p>Leden betalen eenvoudig hun abonnement via veilige online betalingen, en het platform automatiseert het volgen en herinneren, waardoor uw club uren aan handmatig werk bespaart.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Verhoogde Inkomsten</h3>
+            <p>Bied flexibele abonnementsplannen op maat van uw leden, inclusief speciale tarieven voor nieuwe leden of promoties, waardoor u eenvoudig de inkomsten van uw club kunt laten groeien.</p>
+        </div>
+        <div class="characteristic-box">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Tijdbesparend Beheer</h3>
+            <p>Van het beheren van abonnementen tot het genereren van rapporten, Klubos automatiseert uw administratieve taken, zodat u zich kunt concentreren op de ontwikkeling van uw club.</p>
+        </div>
+    </section>
+    
+    <section id="use-case" class="use-case-section">
+        <span class="beta-warning">GEBRUIKSCASE</span>
+        <h2>Optimaliseer de Workflow van Uw Club</h2>
+        <p>Van het automatiseren van abonnementsbetalingen tot het volgen van de inkomsten van uw club, Klubos helpt u handmatige taken te verminderen en de tevredenheid van leden te verbeteren. Besteed minder tijd aan het beheren van financiën en meer tijd aan het opbouwen van uw gemeenschap.</p>
+        <a href="#email-notification-section" class="learn-more-btn">Meer Weten</a>
+    </section>
+    
+    <section id="pricing" class="pricing">
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Basisplan</h3>
+                <p class="price">€9/maand</p>
+            </div>
+            <ul>
+                <li>Abonnementbeheer</li>
+                <li>Online betalingen</li>
+                <li>Geautomatiseerde herinneringen</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Laat Mij Weten</a>
+        </div>
+    
+        <div class="pricing-plan highlighted">
+            <span class="beta-warning" style="text-align:center;margin:0 auto 0 auto;">BESTE DEAL</span>
+            <div class="info">
+                <h3>Premium Plan</h3>
+                <p class="price">€19/maand</p>
+            </div>
+            <ul>
+                <li>Alles in het Basisplan</li>
+                <li>Evenement- & Toernooibeheer</li>
+                <li>Inzichten in Sociale Media</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Krijg Vroege Toegang</a>
+        </div>
+    
+        <div class="pricing-plan">
+            <div class="info">
+                <h3>Pro Plan</h3>
+                <p class="price">€29/maand</p>
+            </div>
+            <ul>
+                <li>Alles in het Premiumplan</li>
+                <li>Aangepaste Branding</li>
+                <li>Geavanceerde Rapporten</li>
+            </ul>
+            <a href="#email-notification-section" class="notify-btn">Laat Mij Weten</a>
+        </div>
+    </section>
+    
+    <section id="email-notification-section" class="email-notification-section">
+        <div class="email-notification-box">
+            <h2>Geef Uw <span class="highlight">club</span> meer kracht.</h2>
+            <p>Bespaar tijd, verhoog inkomsten en vereenvoudig het beheer van lidmaatschappen. Klubos helpt uw club te groeien door de administratieve last van uw abonnementsbeheer weg te nemen.</p>
+            <form action="https://submit-form.com/HJev3PdHs" class="email-form">
+                <input type="email" id="email" name="email" placeholder="uwemail@gmail.com" required="" />
+                <button type="submit" class="notify-btn-form">Laat Mij Weten</button>
+            </form>
+        </div>
+    </section>    
+      
+    <!-- Basic Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Klubos. Alle rechten voorbehouden.</p>
+          <ul class="footer-links">
+            <li><a href="#">Privacybeleid</a></li>
+            <li><a href="#">Servicevoorwaarden</a></li>
+            <li><a href="#">Contacteer Ons</a></li>
+          </ul>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        }       
+    </script>
+      
+</body>
+</html>
