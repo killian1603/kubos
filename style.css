@@ -154,7 +154,7 @@ a.early-access-btn {
   .hero-text {
     text-align: left;
     flex: 0.75; /* Allows the text area to take up available space */
-    margin-top: 100px;
+    margin-top: 35px;
   }
   
   h1 {
